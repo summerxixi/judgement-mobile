@@ -1,4 +1,4 @@
-// pages/span/span.js
+// pages/analysis/uploadInfo/uploadInfo.js
 Page({
 
     /**

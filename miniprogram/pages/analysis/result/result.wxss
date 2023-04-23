@@ -54,23 +54,6 @@
     z-index: 2;
     color: white;
 }
-
-.mid-difference {
+.mid-position{
     margin-top: 24rpx;
-    width: 100%;
-    box-sizing: border-box;
-
-    height: 418rpx;
-
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-}
-
-.mid-diverge {
-    margin-top: 67rpx;
-    box-sizing: border-box;
-    height: 602rpx;
-
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
 }

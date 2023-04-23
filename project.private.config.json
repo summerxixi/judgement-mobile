@@ -72,6 +72,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/analysis/result/result",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

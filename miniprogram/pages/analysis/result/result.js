@@ -1,13 +1,19 @@
-// pages/home/home.js
+// pages/analysis/analysis.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        current: 0,
     },
 
+    handleActive(evt) {
+        console.log(evt.currentTarget.dataset.index)
+        this.setData({
+            current: evt.currentTarget.dataset.index
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "span-analysis":"../../../components/analysis/span/span",
+        "single-analysis":"../../../components/analysis/single/single"
+    }
+}

@@ -1,11 +1,9 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/single/single",
-        "pages/span/span",
-        "pages/analysis/analysis",
-        "pages/home/home"
-
+        "pages/my/my",
+        "pages/analysis/result/result",
+        "pages/analysis/uploadInfo/uploadInfo"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -19,18 +17,17 @@
     "tabBar": {
         "list": [
             {
-                "pagePath": "pages/analysis/analysis",
+                "pagePath": "pages/analysis/result/result",
                 "text": "量型有爱",
                 "iconPath": "./static/images/analysis.png",
                 "selectedIconPath": "/static/images/analysis.png"
             },
             {
-                "pagePath": "pages/home/home",
+                "pagePath": "pages/my/my",
                 "text": "我的",
                 "iconPath": "/static/images/my.png",
                 "selectedIconPath": "/static/images/my.png"
             }
-           
         ]
     }
 }
