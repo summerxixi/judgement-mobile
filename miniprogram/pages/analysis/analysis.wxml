@@ -1,0 +1,13 @@
+<!--pages/analysis/analysis.wxml-->
+<view class="body">
+<view class="ana-top">
+<view class="ana-top-left">分析结果</view>
+<view class="ana-top-right">
+<view class="ana-top-right-le {{current===0?'active':''}}" data-index="{{0}}" bindtap="handleActive">单一案件</view>
+<view class="ana-top-right-re {{current===1?'active':''}}" data-index="{{1}}" bindtap="handleActive">跨案件</view>
+</view>
+</view>
+<view class="mid-difference"></view>
+<view class="mid-diverge"></view>
+
+</view>
