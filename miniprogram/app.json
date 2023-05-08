@@ -20,13 +20,13 @@
                 "pagePath": "pages/analysis/result/result",
                 "text": "量型有爱",
                 "iconPath": "./static/images/analysis.png",
-                "selectedIconPath": "/static/images/analysis.png"
+                "selectedIconPath": "/static/images/ac-analysis.png"
             },
             {
                 "pagePath": "pages/my/my",
                 "text": "我的",
                 "iconPath": "/static/images/my.png",
-                "selectedIconPath": "/static/images/my.png"
+                "selectedIconPath": "/static/images/ac-my.png"
             }
         ]
     }

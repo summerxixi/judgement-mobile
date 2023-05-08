@@ -14,7 +14,7 @@
     position: relative;
     top: -10px;
     left: 54rpx;
-    
+
 }
 
 .mid-difference {
@@ -27,16 +27,8 @@
     border-radius: 20px;
 }
 
-.mid-diverge {
-    margin-top: 67rpx;
-    box-sizing: border-box;
-    height: 602rpx;
 
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-}
-
-.mid-p2{
+.mid-p2 {
     display: flex;
     justify-content: center;
     width: 270rpx;
@@ -52,4 +44,61 @@
     position: relative;
     top: -10px;
     left: 54rpx;
+}
+
+.fig-container {
+    height: 300rpx;
+    width: 300rpx;
+    margin-left: 84px;
+
+}
+
+.mid-diverge {
+    margin-top: 67rpx;
+    box-sizing: border-box;
+    height: 602rpx;
+
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    z-index: -2;
+    padding: 0 2px;
+}
+
+.mid-top-fig {
+    height: 260rpx;
+}
+
+.two-fig {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.mid-fig-le {
+    flex: 1;
+}
+
+.mid-fig-ri {
+    flex: 1;
+}
+
+.mid-font {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150rpx;
+}
+
+.mid-font-sub {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'PingFang SC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
 }
