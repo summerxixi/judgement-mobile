@@ -55,5 +55,5 @@
     color: white;
 }
 .mid-position{
-    margin-top: 24rpx;
+    margin-top: 54rpx;
 }

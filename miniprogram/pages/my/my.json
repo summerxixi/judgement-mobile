@@ -1,3 +1,6 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+        "chart":"../../components/analysis/chart/chart"
+    } ,
+    "navigationBarTitleText": "我的"
 }
