@@ -1,2 +1,60 @@
 <!--pages/analysis/uploadInfo/uploadInfo.wxml-->
-<text>pages/analysis/uploadInfo/uploadInfo.wxml</text>
+<view class="top-bar">
+  <text class="top-bar-text">
+    量刑有爱（AI）
+  </text>
+</view>
+<view class="upload-root">
+  <view class="upload-title">
+    <text class="upload-title-text">您好,
+      用户名!</text>
+    <image src="/static/images/upload-title-img.png" alt="" class="upload-bg-img" />
+  </view>
+  <view class="upload-main">
+    <view class="upload-area">
+      <view class="upload-func-title">地区</view>
+      <picker class="picker" mode="region" level="region" value="{{area}}" bindchange="selectRegion">
+        <text>{{area}}</text>
+        <image src="/static/images/region-icon.png" mode="" class="region-pick-icon" />
+      </picker>
+    </view>
+    <view class="upload-time">
+      <view class="upload-func-title">起始时间</view>
+      <view class="picker">
+        <picker mode="date" value="{{time_start}}" bindchange="selectSTime">
+          {{time_start}}
+          <image src="/static/images/date-icon.png" mode="" class="pick-icon" />
+        </picker>
+      </view>
+    </view>
+    <view class="upload-time">
+      <view class="upload-func-title">结束时间</view>
+      <view class="picker">
+        <picker mode="date" value="{{time_end}}" bindchange="selectETime">
+          {{time_end}}
+          <image src="/static/images/date-icon.png" mode="" class="pick-icon" />
+        </picker>
+      </view>
+    </view>
+    <view class="upload-file">
+      <view class="upload-func-title">上传文书
+        <image src="/static/images/help.png" mode="" class="upload-file-help-icon" bindtap="showUploadHelp" />
+      </view>
+      <view class="file-picker">
+        <image src="/static/images/Framefile-icon.png" mode="" class="pick-file-icon" />
+        <view class="accessory" bindtap="chooseFiletap"  data-index="{{index}}" data-status="1">上传刑事案件文书</view>
+      </view>
+    </view>
+    <button class="upload-submit" bindtap="startAnalysis">开始分析</button>
+    <view wx:if="{{help_show_flag}}" class="upload-file-help-bg">
+      <view class="upload-file-help-content">
+        <text class="help-title">文书上传说明</text>
+        <text class="help-detail">1.请上传以上时间范围及相关地区的所有刑事裁判文书。
+          2.上传格式仅限于TXT、DOC、PDF、DOCX，大小50M以下。
+          3.请勿上传加密过的文档。
+        </text>
+        <button class="help-btn" bindtap="closeHelp">我知道了</button>
+      </view>
+    </view>
+  </view>
+</view>

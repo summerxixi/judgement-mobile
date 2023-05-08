@@ -5,7 +5,45 @@ Page({
      * 页面的初始数据
      */
     data: {
+      help_show_flag : false,
+      area : '',
+      time_start : '',
+      time_end : '',
+      file : ''
+    },
 
+    showUploadHelp:function(){
+      this.setData({
+        help_show_flag: true
+      })
+    },
+
+    closeHelp:function(){
+      this.setData({
+        help_show_flag: false
+      })
+    },
+
+    startAnalysis:function(){
+      console.log('开始分析')
+    },
+
+    selectSTime: function(e) {
+      this.setData({
+        time_start: e.detail.value
+      })
+    },
+
+    selectETime: function(e) {
+      this.setData({
+        time_end: e.detail.value
+      })
+    },
+
+    selectRegion: function(e) {
+      this.setData({
+        area: e.detail.value
+      })
     },
 
     /**
@@ -62,5 +100,7 @@ Page({
      */
     onShareAppMessage() {
 
-    }
+    },
+
+   
 })
