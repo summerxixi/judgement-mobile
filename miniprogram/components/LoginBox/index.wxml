@@ -1,0 +1,4 @@
+<!--components/LoginBox/index.wxml-->
+<view>
+    <button open-type="getUserInfo" bindgetuserinfo="loginWithUserInfo">登录弹窗</button>
+</view>

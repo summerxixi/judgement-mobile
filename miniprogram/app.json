@@ -12,18 +12,21 @@
     "sitemapLocation": "sitemap.json",
     "style": "v2",
     "tabBar": {
+      "custom": true,
+      "selectedColor": "#8E8E93",
+      "color": "#8E8E93",
         "list": [
             {
-                "pagePath": "pages/analysis/result/result",
+                "pagePath": "pages/analysis/uploadInfo/uploadInfo",
                 "text": "量型有爱",
-                "iconPath": "./static/images/analysis.png",
-                "selectedIconPath": "/static/images/ac-analysis.png"
+                "iconPath": "/static/images/analysis-default.png",
+                "selectedIconPath": "/static/images/analysis-active.png"
             },
             {
                 "pagePath": "pages/my/my",
                 "text": "我的",
-                "iconPath": "/static/images/my.png",
-                "selectedIconPath": "/static/images/ac-my.png"
+                "iconPath": "/static/images/my-default.png",
+                "selectedIconPath": "/static/images/my-active.png"
             }
         ]
     }

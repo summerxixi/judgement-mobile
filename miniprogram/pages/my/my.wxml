@@ -1,1 +1,6 @@
+<view class="top-bar">
+  <text class="top-bar-text">
+    量刑有爱（AI）
+  </text>
+</view>
 <view>我的</view>

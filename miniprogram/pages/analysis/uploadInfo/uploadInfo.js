@@ -6,7 +6,7 @@ Page({
      */
     data: {
       help_show_flag : false,
-      area : '',
+      area : [],
       time_start : '',
       time_end : '',
       file : ''
@@ -44,6 +44,7 @@ Page({
       this.setData({
         area: e.detail.value
       })
+      console.log(this.data.area)
     },
 
     /**
@@ -64,7 +65,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+      var tabBar = this.getTabBar()
+      tabBar.setData({
+        selected: 0
+      })
     },
 
     /**
