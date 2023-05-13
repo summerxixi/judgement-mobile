@@ -12,7 +12,8 @@
   left: 0px;
   top: 0px;
   z-index: -1;
-  background: linear-gradient(180deg, #6C63FF 0%, rgba(255, 255, 255, 0) 463.32%);
+  background: linear-gradient(180deg, #6C63FF 0%, rgba(255, 255, 255, 0) 250%);
+
   border-radius: 0px 0px 30px 30px;
 }
 
@@ -163,7 +164,7 @@
   height: 120rpx;
   padding-left: 35rpx;
   padding-right: 26rpx;
-  background: linear-gradient(90deg, rgb(255, 224, 191) 0%, rgba(254, 238, 219, 0.5) 100%);
+  background: linear-gradient(90deg, rgb(255, 224, 191) 0%, rgba(254, 238, 219, 0.8) 100%);
   box-shadow: inset 0px 0px 29px rgba(254, 238, 219, 0.47);
   border-radius: 20rpx;
 
@@ -174,9 +175,9 @@
 }
 
 .my-vip-title{
-  width: max-content;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
+  width: 140rpx;
   font-size: 32rpx;
   line-height: 46rpx;
 
@@ -184,14 +185,14 @@
 }
 
 .my-vip-prompt{
-  width: 134px;
-  height: 17px;
+  width: 268rpx;
+  height: 34rpx;
 
   font-family: 'PingFang SC';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 26rpx;
+  line-height: 34rpx;
 
   color: #C29C5E;
 }
@@ -213,14 +214,12 @@
 .my-vip-split{
   height: 84rpx;
   width: 0%;
-border: 1px dashed #C29C5E;
+  border-left: 2rpx dashed #C29C5E;
 }
 
 .my-serve{
   box-sizing: border-box;
   height: 400rpx;
-
-
   background: #FFFFFF;
   border-radius: 24rpx;
 
