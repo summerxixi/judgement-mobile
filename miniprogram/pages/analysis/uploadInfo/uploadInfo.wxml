@@ -7,7 +7,7 @@
 <view class="upload-root">
   <view class="upload-title">
     <text class="upload-title-text">您好,
-      用户名!</text>
+      {{nickName}}!</text>
     <image src="/static/images/upload-title-img.png" alt="" class="upload-bg-img" />
   </view>
   <view class="upload-main">
@@ -42,7 +42,12 @@
       </view>
       <view class="file-picker">
         <image src="/static/images/Framefile-icon.png" mode="" class="pick-file-icon" />
-        <view class="accessory" bindtap="chooseFiletap"  data-index="{{index}}" data-status="1">上传刑事案件文书</view>
+        <!-- 选择文件前 -->
+        <view class="accessory" bindtap="selectFile" wx:if="{{file === ''}}" >上传刑事案件文书</view>
+        <!-- 选择完文件后 -->
+        <view class="accessory" bindtap="previewFile" wx:if="{{file !== ''}}" >{{ file.name }}
+        <image class="upload-file-help-icon" bindtap="cancelFileSelect" mode="" src="/static/images/cancel-file-select-icon.png"/>
+        </view>
       </view>
     </view>
     <button class="upload-submit" bindtap="startAnalysis">开始分析</button>
@@ -57,4 +62,7 @@
       </view>
     </view>
   </view>
+  <cover-view wx:if="{{!isLogged}}" class="log-prompt">
+    <login-box/>
+  </cover-view>
 </view>

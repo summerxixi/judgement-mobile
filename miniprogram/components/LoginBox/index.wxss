@@ -1,1 +1,27 @@
 /* components/LoginBox/index.wxss */
+.login-box{
+  width:  750rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 32rpx;
+  background-color:#2E2E2E ;
+  opacity: 0.8;
+}
+
+.login-box-text{
+  color: white;
+  width: 500rpx;
+  padding-left: 50rpx;
+}
+
+.login-box-btn{
+  height: 40rpx;
+  width: 100rpx;
+  text-align: center;
+  padding: 0%;
+  line-height: 40rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+}

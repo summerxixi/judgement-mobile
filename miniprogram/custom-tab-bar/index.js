@@ -19,7 +19,7 @@ Component({
       list: [
         {
           "pagePath": "pages/analysis/uploadInfo/uploadInfo",
-          "text": "量型有爱",
+          "text": "分析",
           "iconPath": "/static/images/analysis-default.png",
           "selectedIconPath": "/static/images/analysis-active.png"
       },

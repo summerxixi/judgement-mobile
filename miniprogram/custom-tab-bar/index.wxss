@@ -32,11 +32,11 @@
   flex-direction: column;
 }
 
-.tab-bar-item cover-image {
+.tab-bar-item image {
   width: 50rpx;
   height: 50rpx;
 }
 
-.tab-bar-item cover-view {
+.tab-bar-item view {
   font-size: 20rpx;
 }

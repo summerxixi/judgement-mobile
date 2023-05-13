@@ -1,6 +1,70 @@
-<view class="top-bar">
-  <text class="top-bar-text">
-    量刑有爱（AI）
-  </text>
+<view class="my-root">
+<view class="my-background"></view>
+<view class="my-top-bar">
+  <text class="my-top-bar-title">我的</text>
+  <view class="my-top-bar-border"> 
+  </view>
 </view>
-<view>我的</view>
+<view class="my-main">
+<!-- 用户信息 -->
+  <view class="my-user">
+    <view class="my-info">
+      <image src="{{userInfo.avatarUrl}}" mode="" class="my-avator"/>
+      <view class="my-userInfo">
+        <text class="my-name">{{userInfo.nickName}}</text>
+        <text class="my-location">{{userInfo.location}}</text>
+      </view>
+    </view>
+    <image src="/static/images/my-setting-icon.png" mode="" class="my-set-icon" bindtap="openSetting"/>
+  </view>
+<!-- 历史记录 -->
+<view class="my-history">
+    <view class="my-history-top">
+      <text class="my-history-title">我的分析记录</text>
+      <text class="my-history-count">量刑有爱（AI）已经帮助您 {{userInfo.useNum}} 次</text>
+    </view>
+    <view class="my-history-list">
+      <view class="my-history-item" bindtap="openHistory">
+        <image src="/static/images/history-icon.png" mode="" class="my-history-item-icon"/>
+        <text class="my-history-item-title">历史记录</text>
+      </view>
+      <view class="my-history-item" bindtap="openFavorites">
+        <image src="/static/images/favorite-icon.png" mode="" class="my-history-item-icon"/>
+        <text class="my-history-item-title">我的收藏</text>
+      </view>
+      <view class="my-history-item" bindtap="openAcheivement">
+        <image src="/static/images/achievement-icon.png" mode="" class="my-history-item-icon"/>
+        <text class="my-history-item-title">我的成就</text>
+      </view>
+    </view>
+  </view>
+    <view class="my-vip">
+      <text class="my-vip-title">会员中心</text>
+      <view class="my-vip-split">
+      </view>
+      <text class="my-vip-prompt">马上解锁隐藏功能</text>
+      <button class="my-vip-btn">去开通</button>
+    </view>
+  <view class="my-serve">
+    <text class="my-serve-title">设置与服务</text>
+    <view class="my-serve-list">
+      <view class="my-serve-item">
+        <text class="my-serve-item-title">隐私政策</text>
+        <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon"/>
+      </view>
+      <view class="my-serve-item">
+        <text class="my-serve-item-title">关于我们</text>
+        <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon"/>
+      </view>
+      <view class="my-serve-item">
+        <text class="my-serve-item-title">问题反馈</text>
+        <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon"/>
+      </view>
+    </view>
+  </view>
+</view>
+<cover-view wx:if="{{!isLogged}}" class="log-prompt">
+    <login-box/>
+</cover-view>
+  
+</view>

@@ -1,33 +1,37 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/my/my",
-        "pages/analysis/result/result",
-        "pages/analysis/uploadInfo/uploadInfo"
-    ],
-    "window": {
-      "navigationStyle": "custom",
-      "enablePullDownRefresh": true
-    },
-    "sitemapLocation": "sitemap.json",
-    "style": "v2",
-    "tabBar": {
-      "custom": true,
-      "selectedColor": "#8E8E93",
-      "color": "#8E8E93",
-        "list": [
-            {
-                "pagePath": "pages/analysis/uploadInfo/uploadInfo",
-                "text": "量型有爱",
-                "iconPath": "/static/images/analysis-default.png",
-                "selectedIconPath": "/static/images/analysis-active.png"
-            },
-            {
-                "pagePath": "pages/my/my",
-                "text": "我的",
-                "iconPath": "/static/images/my-default.png",
-                "selectedIconPath": "/static/images/my-active.png"
-            }
-        ]
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/analysis/result/result",
+    "pages/analysis/uploadInfo/uploadInfo",
+    "pages/login/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "custom": true,
+    "selectedColor": "#8E8E93",
+    "color": "#8E8E93",
+    "list": [
+      {
+        "pagePath": "pages/analysis/uploadInfo/uploadInfo",
+        "text": "量型有爱",
+        "iconPath": "/static/images/analysis-default.png",
+        "selectedIconPath": "/static/images/analysis-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/static/images/my-default.png",
+        "selectedIconPath": "/static/images/my-active.png"
+      }
+    ]
+  },
+  "useExtendedLib": {
+    "weui": true
+  }
 }

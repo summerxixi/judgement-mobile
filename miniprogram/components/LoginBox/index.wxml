@@ -1,4 +1,5 @@
 <!--components/LoginBox/index.wxml-->
-<view>
-    <button open-type="getUserInfo" bindgetuserinfo="loginWithUserInfo">登录弹窗</button>
+<view class="login-box">
+<text class="login-box-text" >请登录后使用</text>
+<navigator url="/pages/login/index" class="login-box-btn">登录</navigator>
 </view>

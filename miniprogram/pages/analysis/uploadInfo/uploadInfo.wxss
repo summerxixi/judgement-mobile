@@ -1,5 +1,6 @@
 /* pages/analysis/uploadInfo/uploadInfo.wxss */
 .upload-root{
+  position: relative;
   height: 1282rpx;
   display: flex;
   flex-direction: column;
@@ -213,4 +214,11 @@
   font-weight: 300;
   font-size: 28rpx;
   line-height: 40rpx;
+}
+
+.log-prompt{
+  z-index: 999;
+  position: absolute;
+  width: 750rpx;
+  bottom: 0;
 }

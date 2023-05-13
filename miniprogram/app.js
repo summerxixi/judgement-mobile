@@ -13,9 +13,25 @@ App({
         traceUser: true,
       });
     }
-
-    this.globalData = {
-      selected: 0
-    };
+    this.checkLogin()
+    
+  },
+  globalData : {
+    selected: 0,
+    afterAnalysis: false,
+    isLogged: false,
+    token: null
+  },
+  checkLogin(){
+    var token = this.globalData.token
+    if(!token) {
+      token = wx.getStorageSync('token')
+      if(token){
+        this.globalData.token = token
+        this.globalData.isLogged = true
+      }else{
+        this.globalData.isLogged = false
+      }
+    }
   }
 });

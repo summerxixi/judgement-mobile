@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "span-analysis":"../../../components/analysis/span/span",
-        "single-analysis":"../../../components/analysis/single/single"
+        "single-analysis":"../../../components/analysis/single/single",
+        "tabBar":"/custom-tab-bar/index"
     }
 }

@@ -1,4 +1,9 @@
 <!--pages/analysis/analysis.wxml-->
+<view class="top-bar">
+  <text class="top-bar-text">
+    量刑有爱（AI）
+  </text>
+</view>
 <view class="body">
 <view class="ana-top">
 <view class="ana-top-left">分析结果</view>
@@ -14,3 +19,4 @@
 <span-analysis></span-analysis>
 </view>
 </view>
+<tabBar></tabBar>

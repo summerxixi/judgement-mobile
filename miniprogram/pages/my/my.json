@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "chart":"../../components/analysis/chart/chart"
+        "login-box" : "/components/LoginBox/index"
     } ,
     "navigationBarTitleText": "我的"
 }

@@ -1,4 +1,5 @@
 // components/LoginBox/index.js
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 Component({
     /**
      * 组件的属性列表
@@ -11,60 +12,22 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+      avatarUrl: defaultAvatarUrl,
+    },
+    options:{
+      addGlobalClass: true,
+      styleIsolation: 'shared'
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        login: function () {
-            wx.login({
-                success: (res) => {
-                    if (res.code) {
-                        wx.request({
-                            // 后台登录接口
-                            url: '',    
-                            method: 'GET',
-                            data: {
-                                code: res.code
-                            },
-                            success: (res) => {
-                                wx.setStorage({
-                                    key: 'sessionId',
-                                    data: res.data.sessionId
-                                })
-                            }
-                        })
-                    } else {
-                        console.log('Fail to login')
-                    }
-                },
-            })
-        },
         loginWithUserInfo: function (e) {
-            let detail = e.detail
-            if (detail.errMsg === "getUserInfo:ok") {
-                console.log('用户同意授权');
-                wx.setStorage({
-                    key: 'userInfo',
-                    data: {
-                        'nickName': detail.userInfo.nickName,
-                        'avatarUrl': detail.userInfo.avatarUrl
-                    }
-                })
-                wx.getStorage({
-                    key: 'sessionId',
-                    success: (res) => {
-                        console.log(res)
-                    },
-                    fail: (res) => {
-                        this.login()
-                    }
-                })
-            } else {
-                console.log('用户拒绝授权');
-            }
+          console.log('登录')
+          wx.redirectTo({
+            url: '/pages/login/index',
+          })
         },
     }
 })

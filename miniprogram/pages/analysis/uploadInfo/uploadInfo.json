@@ -1,3 +1,5 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+      "login-box" : "/components/LoginBox/index"
+    }
 }

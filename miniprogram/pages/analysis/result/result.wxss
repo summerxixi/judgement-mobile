@@ -6,7 +6,8 @@
     background: #FFFFFF;
     box-shadow: 0px -6px 30px rgba(165, 163, 204, 0.5);
     backdrop-filter: blur(13.5914px);
-    border-radius: 6orpx;
+    border-top-right-radius: 60rpx;
+    border-top-left-radius: 60rpx;
 }
 
 .ana-top {
