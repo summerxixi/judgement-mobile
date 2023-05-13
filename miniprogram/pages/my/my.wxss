@@ -200,12 +200,13 @@
   width: 160rpx !important;
   height: 44rpx !important;
   text-align: center;
+  padding: 0%;
 
   background: #FFFFFF;
   border-radius: 24rpx;
 
   font-size: 22rpx;
-  line-height: 22rpx;
+  line-height: 44rpx;
   color: #7B4D14;
 }
 
