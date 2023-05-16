@@ -34,7 +34,9 @@
    padding-right: 20rpx;
 }
 .text1{
-  width: 150rpx;
+  width:300rpx;
+  margin: 0 auto ;
+  padding-bottom: 12rpx;
 }
 .weui-input{
     flex: 6;
