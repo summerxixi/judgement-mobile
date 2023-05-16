@@ -62,7 +62,7 @@
       </view>
     </view>
   </view>
-  <cover-view wx:if="{{!isLogged}}" class="log-prompt">
+  <view wx:if="{{!isLogged}}" class="log-prompt">
     <login-box/>
-  </cover-view>
+  </view>
 </view>

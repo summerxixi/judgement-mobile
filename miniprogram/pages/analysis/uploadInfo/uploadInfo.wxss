@@ -217,7 +217,7 @@
 }
 
 .log-prompt{
-  z-index: 999;
+  z-index: 9999999;
   position: absolute;
   width: 750rpx;
   bottom: 0;

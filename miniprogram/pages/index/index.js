@@ -13,9 +13,11 @@ Page({
      */
     onLoad(options) {
       console.log('xxx');
-      wx.switchTab({
-        url: '/pages/analysis/uploadInfo/uploadInfo',
-      })
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/analysis/uploadInfo/uploadInfo',
+        })
+      }, 1000)
     },
 
     /**
