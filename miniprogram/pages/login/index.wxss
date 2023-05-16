@@ -25,20 +25,27 @@
   display: flex;
 }
 .row{
-   border-top: 1px solid #ccc;
-   border-bottom: 1px solid #ccc;
+   border-top: 2rpx solid #ccc;
    display: flex;
    align-items: center;
    height: 80rpx;
    padding-left: 20rpx;
    padding-right: 20rpx;
 }
+
+.row:last-of-type{
+border-bottom: 2rpx solid #ccc;
+}
+
 .text1{
-  width:300rpx;
-  margin: 0 auto ;
-  padding-bottom: 12rpx;
+  width: 150rpx;
 }
 .weui-input{
     flex: 6;
 }
 
+.login-back-btn{
+  position: absolute;
+  left: 20rpx;
+  color: rgb(105, 105, 105);
+}

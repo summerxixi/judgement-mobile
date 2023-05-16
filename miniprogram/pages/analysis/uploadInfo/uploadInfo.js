@@ -14,36 +14,45 @@ Page({
       isLogged:false
     },
     startAnalysis:function(){
-      console.log('开始分析')
-      let that = this
-      if(this.data.file === ''){
+      if(this.data.isLogged){
+        console.log('开始分析')
+        let that = this
+        if(this.data.file === ''){
+          wx.showToast({
+            title: '请上传文书',
+            icon: 'error',
+            duration: 1000,
+            mask: true
+          })
+        }
+        else{
+          // 加载框
+          wx.showLoading({
+            title: "文书分析中...",
+            mask: true
+          })
+          // 上传文书
+          wx.uploadFile({
+            url: 'url',
+            name: 'file',
+            filePath: that.data.file.path,
+            method: 'post',
+            success(res){
+              wx.hideLoading()
+              var app = getApp()
+              app.globalData.afterAnalysis = true
+              wx.redirectTo({
+                url: '/pages/analysis/result/result',
+              })
+            },
+          })
+        }
+      }else{
         wx.showToast({
-          title: '请上传文书',
+          title: '请登录后使用',
           icon: 'error',
           duration: 1000,
           mask: true
-        })
-      }
-      else{
-        // 加载框
-        wx.showLoading({
-          title: "文书分析中...",
-          mask: true
-        })
-        // 上传文书
-        wx.uploadFile({
-          url: 'url',
-          name: 'file',
-          filePath: that.data.file.path,
-          method: 'post',
-          success(res){
-            wx.hideLoading()
-            var app = getApp()
-            app.globalData.afterAnalysis = true
-            wx.redirectTo({
-              url: '/pages/analysis/result/result',
-            })
-          },
         })
       }
     },
@@ -80,19 +89,28 @@ Page({
     },
 
     selectFile: function (e) {
-      var that = this
-      wx.chooseMessageFile({
-        count: 1,
-        type: 'file',
-        success(res){
-          // 预览文件
-          const tempFile = res.tempFiles[0]
-          console.log(tempFile)
-          that.setData({
-            file: tempFile
-          })
-        }
-      })
+      if(this.data.isLogged){
+        var that = this
+        wx.chooseMessageFile({
+          count: 1,
+          type: 'file',
+          success(res){
+            // 预览文件
+            const tempFile = res.tempFiles[0]
+            console.log(tempFile)
+            that.setData({
+              file: tempFile
+            })
+          }
+        })
+      }else{
+        wx.showToast({
+          title: '请登录后使用',
+          icon: 'error',
+          duration: 1000,
+          mask: true
+        })
+      }
     },
 
     previewFile:function(){
