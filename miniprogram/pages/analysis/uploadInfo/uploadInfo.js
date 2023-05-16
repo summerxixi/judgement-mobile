@@ -10,7 +10,8 @@ Page({
       area : [],
       time_start : '',
       time_end : '',
-      file : ''
+      file : '',
+      isLogged:false
     },
     startAnalysis:function(){
       console.log('开始分析')
@@ -86,6 +87,7 @@ Page({
         success(res){
           // 预览文件
           const tempFile = res.tempFiles[0]
+          console.log(tempFile)
           that.setData({
             file: tempFile
           })
@@ -120,14 +122,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-      this.setData({
-        isLogged: app.globalData.isLogged
-      })
-      if(app.globalData.isLogged){
         this.setData({
-          nickName: wx.getStorageSync('userInfo').nickName
-        })
-      }
+            isLogged: app.globalData.isLogged
+          })
+          if(app.globalData.isLogged){
+            this.setData({
+              nickName: wx.getStorageSync('userInfo').nickName
+            })
+          }
     },
 
     /**

@@ -37,6 +37,6 @@
   height: 50rpx;
 }
 
-.tab-bar-item view {
+.tab-bar-item {
   font-size: 20rpx;
 }

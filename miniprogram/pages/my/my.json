@@ -2,5 +2,5 @@
     "usingComponents": {
         "login-box" : "/components/LoginBox/index"
     } ,
-    "navigationBarTitleText": "我的"
+     "navigationBarTitleText": "主页"
 }

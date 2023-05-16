@@ -5,5 +5,9 @@
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell"
   },
-  "pageOrientation": "auto"
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "登录",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom"
+
 }
