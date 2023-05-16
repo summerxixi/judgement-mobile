@@ -149,7 +149,7 @@
 .my-history-item-title{
   text-align: center;
   line-height: 40rpx;
-  font-size: 28rpx;
+  font-size: 24rpx;
   width: 100%;
 }
 
