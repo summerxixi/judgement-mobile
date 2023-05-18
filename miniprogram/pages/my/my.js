@@ -22,6 +22,8 @@ Page({
     console.log('我的成就');
   },
   onLoad() {
+  },
+  onShow() {
     this.setData({
       isLogged: app.globalData.isLogged
     })
@@ -31,8 +33,6 @@ Page({
       })
       console.log(this.data.userInfo)
     }
-  },
-  onShow() {
     var tabBar = this.getTabBar()
     tabBar.setData({
       selected: 1

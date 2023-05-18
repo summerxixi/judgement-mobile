@@ -139,14 +139,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.setData({
-            isLogged: app.globalData.isLogged
-          })
-          if(app.globalData.isLogged){
-            this.setData({
-              nickName: wx.getStorageSync('userInfo').nickName
-            })
-          }
+        
     },
 
     /**
@@ -161,6 +154,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
+      this.setData({
+        isLogged: app.globalData.isLogged
+      })
+      if(app.globalData.isLogged){
+        this.setData({
+          nickName: wx.getStorageSync('userInfo').nickName
+        })
+      }
       var tabBar = this.getTabBar()
       tabBar.setData({
         selected: 0
