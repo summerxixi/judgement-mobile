@@ -32,17 +32,17 @@ Page({
     const nickName = e.detail.value.nickname
     let avatarUrl = this.data.avatarUrl
     const location = this.data.region
-    // let useNum = 1
-    // wx.setStorageSync("userInfo", {
-    //   nickName,
-    //   avatarUrl,
-    //   location,
-    //   useNum
-    // }, )
-    // getApp().globalData.isLogged = true
-    // wx.redirectTo({
-    //   url: '/pages/analysis/uploadInfo/uploadInfo',
-    // })
+    let useNum = 1
+    wx.setStorageSync("userInfo", {
+      nickName,
+      avatarUrl,
+      location,
+      useNum
+    }, )
+    getApp().globalData.isLogged = true
+    wx.redirectTo({
+      url: '/pages/analysis/uploadInfo/uploadInfo',
+    })
     wx.login({
       success: (res) => {
         if (res.code) {
