@@ -1,5 +1,4 @@
 // index.js
-import request from "../../util/request"
 const app = getApp()
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 Page({
@@ -39,16 +38,29 @@ Page({
         if (res.code) {
           const code = res.code
           wx.cloud.callContainer({
-            path: 'https://new-49732-9-1318259313.sh.run.tcloudbase.com/api/auth/login',
+            path: '/api/auth/login',
             method: "POST",
             header:{
-              'content-type' : 'multipart/form-data'
+              'content-type' : 'multipart/form-data',
+              'X-WX-SERVICE': 'new',
             },
             data: {
               code
             },
             success(res){
               console.log(res)
+              const token = res.data.token
+              // const useNum = res.data.useNum
+              const useNum = 1
+              wx.setStorageSync('token',  token)
+              wx.setStorageSync("userInfo", {
+                nickName,
+                avatarUrl,
+                location,
+                useNum
+              })
+              getApp().globalData.isLogged = true
+              wx.navigateBack()
             }
           })
         //   wx.request({
