@@ -14,6 +14,7 @@ Page({
       isLogged:false
     },
     startAnalysis:function(){
+      const that = this
       if(this.data.isLogged){
         console.log('开始分析')
         let that = this
@@ -32,11 +33,9 @@ Page({
             mask: true
           })
           // 上传文书
-          wx.uploadFile({
-            url: 'url',
-            name: 'file',
+          wx.cloud.uploadFile({
+            cloudPath: that.data.file.name,
             filePath: that.data.file.path,
-            method: 'post',
             success(res){
               wx.hideLoading()
               var app = getApp()

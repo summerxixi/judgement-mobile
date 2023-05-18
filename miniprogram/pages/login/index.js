@@ -37,33 +37,48 @@ Page({
     wx.login({
       success: (res) => {
         if (res.code) {
-          wx.request({
-            // 后台登录接口
-            url: '',
-            method: 'GET',
-            data: {
-              code: res.code
+          const code = res.code
+          wx.cloud.callContainer({
+            path: 'https://new-49732-9-1318259313.sh.run.tcloudbase.com/api/auth/login',
+            method: "POST",
+            header:{
+              'content-type' : 'multipart/form-data'
             },
-            success: (res) => {
-              console.log('get code succ' + res.code)
-              const token = res.data.sessionId
-              const useNum = res.data.useNum
-              wx.setStorageSync('token',  token)
-              wx.setStorageSync("userInfo", {
-                nickName,
-                avatarUrl,
-                location,
-                useNum
-              })
-              getApp().globalData.isLogged = true
-              // wx.redirectTo({
-              //   url: '/pages/analysis/uploadInfo/uploadInfo',
-              // })
-              wx.navigateBack()
+            data: {
+              code
+            },
+            success(res){
+              console.log(res)
             }
           })
-        } else {
-          console.log('Fail to login')
+        //   wx.request({
+        //     // 后台登录接口
+        //     url: 'https://new-49732-9-1318259313.sh.run.tcloudbase.com/api/auth/login',
+        //     method: 'POST',
+            
+        //     header:{
+        //       'content-type' : 'multipart/form-data'
+        //     },
+        //     success: (res) => {
+        //       console.log('get code succ' + res.code)
+        //       const token = res.data.sessionId
+        //       const useNum = res.data.useNum
+        //       wx.setStorageSync('token',  token)
+        //       wx.setStorageSync("userInfo", {
+        //         nickName,
+        //         avatarUrl,
+        //         location,
+        //         useNum
+        //       })
+        //       getApp().globalData.isLogged = true
+        //       // wx.redirectTo({
+        //       //   url: '/pages/analysis/uploadInfo/uploadInfo',
+        //       // })
+        //       wx.navigateBack()
+        //     }
+        //   })
+        // } else {
+        //   console.log('Fail to login')
         }
       },
     })

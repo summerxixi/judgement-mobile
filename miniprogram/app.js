@@ -13,8 +13,8 @@ App({
         traceUser: true,
       });
     }
+
     this.checkLogin()
-    
   },
   globalData : {
     selected: 0,
