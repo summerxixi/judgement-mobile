@@ -33,9 +33,12 @@ Page({
             mask: true
           })
           // 上传文书
+          const fileName = this.data.file.name
+          const filePath = this.data.file.path
+          const token = wx.getStorageSync('token')
           wx.cloud.uploadFile({
-            cloudPath: that.data.file.name,
-            filePath: that.data.file.path,
+            cloudPath: fileName,
+            filePath: filePath,
             success(res){
               wx.hideLoading()
               var app = getApp()
@@ -43,10 +46,23 @@ Page({
               wx.redirectTo({
                 url: '/pages/analysis/result/result',
               })
-            },
-          })
-        }
-      }else{
+              // wx.cloud.callContainer({
+              //   path: '/api/auth/login',
+              //   method: "POST",
+              //   header: {
+              //     'content-type': 'application/json',
+              //     'X-WX-SERVICE': 'ai',
+              //   },
+              //   data: {
+              //     filename: fileName,
+              //     token: token
+              //   },
+              // })
+             }
+        })
+      }
+    }
+      else{
         wx.showToast({
           title: '请登录后使用',
           icon: 'error',
@@ -96,7 +112,6 @@ Page({
           success(res){
             // 预览文件
             const tempFile = res.tempFiles[0]
-            console.log(tempFile)
             that.setData({
               file: tempFile
             })
