@@ -1,5 +1,6 @@
-<view class="login-root">
 <!--index.wxml-->
+<view class="login-root">
+  <view bindtap="handleBack" class="login-back-btn">返回</view>
 <view data-weui-theme="{{theme}}">
   <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
     <image class="avatar" src="{{avatarUrl}}"></image>

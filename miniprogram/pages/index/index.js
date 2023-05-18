@@ -11,10 +11,13 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad() {
-      wx.switchTab({
-        url: '/pages/analysis/uploadInfo/uploadInfo',
-      })
+    onLoad(options) {
+      console.log('xxx');
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/analysis/uploadInfo/uploadInfo',
+        })
+      }, 1000)
     },
 
     /**

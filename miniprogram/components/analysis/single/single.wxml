@@ -1,37 +1,37 @@
 <!--components/analysis/single/single.wxml-->
 
 <view class="mid-difference">
-    <view class="mid-p1">法官个人因素所导致的量刑差异</view>
-    <view class="fig-container">
-        <chart option="{{topOption}}" height="300rpx"></chart>
-    </view>
+  <view class="mid-p1">法官个人因素所导致的量刑差异</view>
+  <view class="fig-container">
+    <chart option="{{topOption}}" height="300rpx"></chart>
+  </view>
 </view>
 
 <view class="mid-diverge">
-    <view class="mid-p2">不同法官量刑偏离值</view>
-    <view class="mid-top-fig">
-        <view>
-            <chart option="{{midTopOption}}" height="260rpx"></chart>
-        </view>
+  <view class="mid-p2">不同法官量刑偏离值</view>
+  <view class="mid-top-fig">
+    <view>
+      <chart option="{{midTopOption}}" height="260rpx"></chart>
     </view>
+  </view>
 
-    <view class="two-fig">
-        <view class="mid-fig-le">
-            <chart option="{{downOptionle}}" height="156rpx"></chart>
-        </view>
-        <view class="mid-fig-ri">
-            <chart option="{{downOptionri}}" height="156rpx"></chart>
-        </view>
+  <view class="two-fig">
+    <view class="mid-fig-le">
+      <chart option="{{downOptionle}}" height="156rpx"></chart>
     </view>
-    <view class="mid-font">
-        <view class="mid-font-sub">
-            <view>偏差较小</view>
-            <view>以1个标准差为阈值</view>
-        </view>
-        <view class="mid-font-sub">
-            <view>偏差较大</view>
-            <view>以2个标准差为阈值</view>
-        </view>
+    <view class="mid-fig-ri">
+      <chart option="{{downOptionri}}" height="156rpx"></chart>
     </view>
+  </view>
+  <view class="mid-font">
+    <view class="mid-font-sub">
+      <view>偏差较小</view>
+      <view>以1个标准差为阈值</view>
+    </view>
+    <view class="mid-font-sub">
+      <view>偏差较大</view>
+      <view>以2个标准差为阈值</view>
+    </view>
+  </view>
 
 </view>

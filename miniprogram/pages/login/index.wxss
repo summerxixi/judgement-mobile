@@ -32,9 +32,11 @@
    padding-left: 20rpx;
    padding-right: 20rpx;
 }
+
 .row:last-of-type{
-  border-bottom: 2rpx solid #ccc;
+border-bottom: 2rpx solid #ccc;
 }
+
 .text1{
   width: 150rpx;
 }
@@ -42,3 +44,8 @@
     flex: 6;
 }
 
+.login-back-btn{
+  position: absolute;
+  left: 20rpx;
+  color: rgb(105, 105, 105);
+}

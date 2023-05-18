@@ -1,60 +1,63 @@
 /* pages/analysis/analysis.wxss */
 .body {
-    height: 1285rpx;
-    padding-left: 48rpx;
-    padding-right: 48rpx;
-    background: #FFFFFF;
-    box-shadow: 0px -6px 30px rgba(165, 163, 204, 0.5);
-    backdrop-filter: blur(13.5914px);
-    border-top-right-radius: 60rpx;
-    border-top-left-radius: 60rpx;
+  height: 1285rpx;
+  padding-left: 48rpx;
+  padding-right: 48rpx;
+  background: #FFFFFF;
+  box-shadow: 0px -6px 30px rgba(165, 163, 204, 0.5);
+  backdrop-filter: blur(13.5914px);
+  border-top-right-radius: 60rpx;
+  border-top-left-radius: 60rpx;
 }
 
 .ana-top {
-    margin-top: 42rpx;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+  margin-top: 42rpx;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .ana-top-left {
 
-    font-size: 40rpx;
-    font-weight: 400;
-    font-family: 'PingFang SC';
-    font-style: normal;
-    line-height: 58rpx;
+  font-size: 40rpx;
+  font-weight: 400;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  line-height: 58rpx;
 
 }
 
 .ana-top-right {
-    display: flex;
-    justify-content: space-between;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28rpx;
 
 
 }
 
 .ana-top-right-le,
 .ana-top-right-re {
-    width: 194rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 40rpx;
-    border: 1px solid grey;
-    color: rgba(0, 0, 0, 0.5);
+  width: 194rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+  border: 1px solid grey;
+  color: rgba(0, 0, 0, 0.5);
 }
-.ana-top-right-le{
-    margin-right: -20px;
+
+.ana-top-right-le {
+  margin-right: -20px;
 }
+
 .active {
-    background: #6C63FF;
-    z-index: 2;
-    color: white;
+  background: #6C63FF;
+  z-index: 2;
+  color: white;
 }
-.mid-position{
-    margin-top: 54rpx;
+
+.mid-position {
+  margin-top: 54rpx;
 }

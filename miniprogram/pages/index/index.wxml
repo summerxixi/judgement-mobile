@@ -1,1 +1,13 @@
 <!--pages/index/index.wxml-->
+<view class="index-root">
+  <view class="loading">
+    <image src="/static/images/logo.jpg" mode="" class="logo" />
+    <view class="loading-animation">
+      <view class="dots">
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+</view>
