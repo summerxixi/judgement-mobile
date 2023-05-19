@@ -217,7 +217,7 @@
 
 .my-serve{
   box-sizing: border-box;
-  height: 400rpx;
+  /* height: 400rpx; */
   background: #FFFFFF;
   border-radius: 24rpx;
 

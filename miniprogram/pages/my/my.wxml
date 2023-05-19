@@ -48,23 +48,57 @@
     <view class="my-serve">
       <text class="my-serve-title">设置与服务</text>
       <view class="my-serve-list">
-        <view class="my-serve-item">
+        <view class="my-serve-item" bindtap="showPopupPrivacy">
           <text class="my-serve-item-title">隐私政策</text>
           <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon" />
         </view>
-        <view class="my-serve-item">
+        <view class="my-serve-item" bindtap="showPopupAboutMe">
           <text class="my-serve-item-title">关于我们</text>
           <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon" />
         </view>
-        <view class="my-serve-item">
+        <view class="my-serve-item" bindtap="showPopupFeedback">
           <text class="my-serve-item-title">问题反馈</text>
+          <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon" />
+
+        </view>
+        <view class="my-serve-item" bindtap="handleLogout">
+          <text class="my-serve-item-title">退出登录</text>
           <image src="/static/images/right-arrow-icon.png" mode="" class="my-serve-item-icon" />
         </view>
       </view>
     </view>
   </view>
+
+
   <cover-view wx:if="{{!isLogged}}" class="log-prompt">
     <login-box />
   </cover-view>
 
 </view>
+
+<popup id='popupPrivacy' 
+title='隐私政策'
+ content="{{htmlSnipPrivacy}}" 
+ btn_no='取消' 
+ btn_ok='确定' 
+ bind:error="_error1" 
+ bind:success="_success1"> 
+</popup>
+<popup id='popupAboutMe' 
+title='关于我们'
+ content="{{htmlSnipAboutMe}}" 
+ btn_no='取消' 
+ btn_ok='确定' 
+ bind:error="_error2" 
+ bind:success="_success2"> 
+</popup>
+<popup id='popupFeedback' 
+title='问题反馈'
+ content="{{htmlSnip}}" 
+ btn_no='取消' 
+ btn_ok='确定' 
+ bind:error="_error3" 
+ bind:success="_success3"> 
+</popup>
+
+
