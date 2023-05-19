@@ -93,6 +93,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/analysis/uploadInfo/uploadInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

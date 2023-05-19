@@ -77,6 +77,7 @@ Page({
         })
         console.log(res)
         wx.setStorageSync('userInfo',res.userInfo)
+        wx.setStorageSync('token',  12345)
         getApp().globalData.isLogged = true
         console.log(app.globalData.isLogged)
         wx.showToast({
@@ -119,10 +120,8 @@ Page({
     
   },
   handleBack(){
-  wx.navigateBack({
-    delta: -1,
-    success: (res) => {},
-    fail: (res) => {},
+  wx.redirectTo({
+    url: '../my/my',
   })
   },
   handleTest(){

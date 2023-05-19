@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "login-box" : "/components/LoginBox/index"
+        "login-box" : "/components/LoginBox/index",
+        "popup":"/components/dialog/dialog"
     } ,
      "navigationBarTitleText": "主页"
 }
