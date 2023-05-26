@@ -1,3 +1,5 @@
+import getBasicOption from "../options/basicOption.js"
+
 Component({
   /**
    * 组件的属性列表
@@ -10,11 +12,37 @@ Component({
    * 组件的初始数据
    */
   data: {
-    core: '40%',
     topOption: null,
     downOption: null,
     downOptionle: null,
-    downOptionti: null
+    downOptionti: null,
+    chartOption:getBasicOption(),
+    top:{
+      core: '40%',
+      val1:20,
+      val2:80
+    },
+    downtop:{
+      prop:[],
+      core:'23.6%',
+      val1:10,
+      val2:20,
+      val3:30
+    },
+    downle:{
+      prop:[],
+      core:'23.6%',
+      val1:10,
+      val2:20,
+      val3:30
+    },
+    downri:{
+      prop:[],
+      core:'23.6%',
+      val1:10,
+      val2:20,
+      val3:30
+    }
   },
 
   /**
@@ -24,12 +52,68 @@ Component({
 
   },
   ready() {
+    // 计算正态分布函数y值和x轴数值
+    // 计算正态分布函数y值和x轴数值
+    const xData = []
+    const yData = []
+    var markLineIndex = -1 // 初始化标线索引
+    for (let i = -4; i <= 4; i += 0.1) {
+      xData.push(i.toFixed(1))
+      yData.push(Number((Math.exp(-i * i / 2) / Math.sqrt(2 * Math.PI)).toFixed(2)))
+    
+      // 找到x值为1.2的点所在的索引
+      if (i.toFixed(1) === '1.2') {
+        markLineIndex = 4
+      }
+    }
+    
+
+    // 设置图表数据
+    this.setData({
+      chartData: {
+        xData,
+        yData,
+      },
+      
+    })
     setTimeout(() => {
       this.setData({
+        chartOption: {
+          ...this.data.chartOption,
+          xAxis: {
+            ...this.data.chartOption.xAxis,
+            data: this.data.chartData.xData,
+          },
+        
+          series: [{
+            ...this.data.chartOption.series[0],
+            data: this.data.chartData.yData,
+            markLine: {
+              symbol:'none',//去掉箭头
+              // 在x=1.2处添加标线
+              data: [
+                { 
+                  name: '本案法官偏移位置', 
+                  yAxis: null, 
+                  itemStyle: { color: 'red' }, // 标线的样式
+                  lineStyle: { type: 'dashed' }, // 标线的类
+                  xAxis: '1.2', // 在x=1.2处添加标线
+                  label: { // 设置标注的样式
+                    formatter: '{b}', // 将原本的"x=1.2"改为"1.2"
+                    position: 'insideMiddleTop',
+                    color: 'red',
+                    fontSize: 8,
+                    fontWeight: 'bold',
+                  }
+                }
+              ],
+            },
+          }],
+        },
         topOption: {
           backgroundColor: "#ffffff",
           title: {
-            text: `{b|40%}`,
+            text: this.data.top.core,
             textStyle: {
               rich: {
                 b: {
@@ -50,9 +134,9 @@ Component({
             center: ['50%', '50%'],
             radius: ['70%', '90%'],
             data: [{
-              value: 40,
+              value: this.data.top.val1,
             }, {
-              value: 60,
+              value: this.data.top.val2,
             }]
           }]
         },

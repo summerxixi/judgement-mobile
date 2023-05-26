@@ -91,5 +91,11 @@ Page({
   },
   _success3() {
     this.popup3.hidePopup();
+  },
+  handleBack(){
+      console.log("kkk")
+      wx.redirectTo({
+        url: '/pages/analysis/uploadInfo/uploadInfo',
+      })
   }
 })

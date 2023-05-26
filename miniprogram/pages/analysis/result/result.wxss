@@ -1,6 +1,6 @@
 /* pages/analysis/analysis.wxss */
 .body {
-  height: 1285rpx;
+  /* height: 1285rpx; */
   padding-left: 48rpx;
   padding-right: 48rpx;
   background: #FFFFFF;
