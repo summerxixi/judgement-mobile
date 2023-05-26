@@ -3,7 +3,7 @@
 <view class="mid-difference">
   <view class="mid-p1">法官个人因素所导致的量刑差异</view>
   <view class="fig-container">
-    <chart option="{{topOption}}" height="300rpx"></chart>
+    <chart option="{{topOption}}" height="300rpx" class="chart1" ></chart>
   </view>
 </view>
 
@@ -34,4 +34,13 @@
     </view>
   </view>
 
+</view>
+
+
+
+<view class="mid-bottom">
+  <view class="mid-p2">本案法官量刑偏移程度</view>
+  <view >
+    <chart option="{{chartOption}}" height="400rpx" ></chart>
+  </view>
 </view>
