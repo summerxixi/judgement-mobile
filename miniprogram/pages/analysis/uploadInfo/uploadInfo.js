@@ -33,14 +33,19 @@ Page({
         const fileName = this.data.file.name
         const filePath = this.data.file.path
         const token = wx.getStorageSync('token')
+
+        const cloudPath = this.randomString()
+
         wx.cloud.uploadFile({
-          cloudPath: fileName,
+          cloudPath: cloudPath,
           filePath: filePath,
         }).then((res) => {
           wx.hideLoading()
           var app = getApp()
           console.log(res)
+
           that.uploadFileDetail(token, fileName, res.fileID)
+
           app.globalData.afterAnalysis = true
           wx.navigateTo({
             url: '/pages/analysis/result/result',
@@ -59,6 +64,21 @@ Page({
     }
   },
 
+
+  randomString: function () {
+    const len = 8;
+    let timestamp = new Date().getTime();
+    let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+    let maxPos = $chars.length;
+    let randomStr = '';
+    for (let i = 0; i < len; i++) {
+      randomStr += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    console.log('时间戳', timestamp)
+    console.log('随机数', randomStr)
+    return randomStr + timestamp;
+  },
+
   uploadFileDetail(token, fileName, fileId) {
     wx.cloud.callContainer({
       path: '/api/pdf/pdf_upload',
@@ -66,7 +86,7 @@ Page({
       header: {
         'content-type': 'application/json',
         'X-WX-SERVICE': 'ai',
-        'token':token
+        'token': token
       },
       data: {
         pdf_name: fileName,
