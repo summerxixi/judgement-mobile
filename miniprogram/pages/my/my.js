@@ -1,4 +1,10 @@
 const app = getApp()
+// var getSetData = require('../../util/getData')
+import getPrivacy from "../../util/getSetData/getPrivacy.js"
+import getAboutMe from "../../util/getSetData/getAboutMe.js"
+const htmlSnipPrivacy =getPrivacy()
+const  htmlSnipAboutMe = getAboutMe()
+// console.log(htmlSnip)
 Page({
   data: {
     userInfo: {
@@ -7,7 +13,9 @@ Page({
       location: '请登陆后使用',
       useNum: '0'
     },
-    isLogged: false
+    isLogged: false,
+    htmlSnipPrivacy, 
+    htmlSnipAboutMe
   },
   openSetting() {
     console.log('点击设置');
@@ -20,6 +28,14 @@ Page({
   },
   openAcheivement() {
     console.log('我的成就');
+  },
+  handleLogout() {
+    wx.setStorageSync('token', null)
+    app.globalData.isLogged = false //以防万一，一块设置了
+    wx.redirectTo({
+      url: '../my/my',
+    })
+    // wx.setStorageSync('key', data)
   },
   onLoad() {
   },
@@ -38,5 +54,41 @@ Page({
     })
   },
   onReady() {
+    this.popup1 = this.selectComponent("#popupPrivacy");
+    this.popup2 = this.selectComponent("#popupAboutMe");
+    this.popup3 = this.selectComponent("#popupFeedback");
+    console.log("lll")
+    console.log(this.popup1)
+  },
+  showPopupPrivacy() {
+    console.log("pop")
+    this.popup1.showPopup();
+  },
+  showPopupAboutMe() {
+    console.log("pop")
+    this.popup2.showPopup();
+  },
+  showPopupFeedback() {
+    console.log("pop")
+    this.popup3.showPopup();
+  },
+  //取消事件
+  _error1() {
+    this.popup1.hidePopup();
+  },
+  _success1() {
+    this.popup1.hidePopup();
+  },
+  _error2() {
+    this.popup2.hidePopup();
+  },
+  _success2() {
+    this.popup2.hidePopup();
+  },
+  _error3() {
+    this.popup3.hidePopup();
+  },
+  _success3() {
+    this.popup3.hidePopup();
   }
 })
