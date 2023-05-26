@@ -142,7 +142,7 @@
 
   position: absolute;
   left: 48rpx;
-  bottom: 532rpx;
+  bottom: 385rpx;
   background-color: #fff;
   border-radius: 20rpx;
 }
