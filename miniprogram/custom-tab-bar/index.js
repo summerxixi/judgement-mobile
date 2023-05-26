@@ -38,9 +38,23 @@ Component({
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset
-      const url = '/' + data.path
-      //切换tab时，改变路由地址
-      wx.switchTab({url})
+    
+      console.log(data.path)
+      if(data.path === 'pages/analysis/uploadInfo/uploadInfo'){
+        if(getApp().globalData.afterAnalysis){
+          const url = '/pages/analysis/result/result'
+          wx.navigateTo({
+            url
+          })
+        }else{
+          const url = '/' + data.path
+          wx.switchTab({url})
+        }
+      }else{
+        const url = '/' + data.path
+        //切换tab时，改变路由地址
+        wx.switchTab({url})
+      }
     }
   }
 })

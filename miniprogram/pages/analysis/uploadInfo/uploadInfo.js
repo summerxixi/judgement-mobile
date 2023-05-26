@@ -2,193 +2,246 @@
 const app = getApp()
 Page({
   /**
-     * 页面的初始数据
-     */
-    data: {
-      nickName: '用户名',
-      help_show_flag : false,
-      area : [],
-      time_start : '',
-      time_end : '',
-      file : '',
-      isLogged:false
-    },
-    startAnalysis:function(){
-      console.log('开始分析')
-      let that = this
-      if(this.data.file === ''){
+   * 页面的初始数据
+   */
+  data: {
+    nickName: '用户名',
+    help_show_flag: false,
+    area: [],
+    time_start: '',
+    time_end: '',
+    file: '',
+    isLogged: false
+  },
+  startAnalysis: function () {
+    if (this.data.isLogged) {
+      if (this.data.file === '') {
         wx.showToast({
           title: '请上传文书',
           icon: 'error',
           duration: 1000,
           mask: true
         })
-      }
-      else{
+      } else {
+        let that = this
         // 加载框
         wx.showLoading({
           title: "文书分析中...",
           mask: true
         })
         // 上传文书
-        wx.uploadFile({
-          url: 'url',
-          name: 'file',
-          filePath: that.data.file.path,
-          method: 'post',
-          success(res){
-            wx.hideLoading()
-            var app = getApp()
-            app.globalData.afterAnalysis = true
-            wx.redirectTo({
-              url: '/pages/analysis/result/result',
-            })
-          },
+        const fileName = this.data.file.name
+        const filePath = this.data.file.path
+        const token = wx.getStorageSync('token')
+
+        const cloudPath = this.randomString()
+
+        wx.cloud.uploadFile({
+          cloudPath: cloudPath,
+          filePath: filePath,
+        }).then((res) => {
+          wx.hideLoading()
+          var app = getApp()
+          console.log(res)
+
+          that.uploadFileDetail(token, fileName, res.fileID)
+
+          app.globalData.afterAnalysis = true
+          wx.navigateTo({
+            url: '/pages/analysis/result/result',
+          })
+        }).catch(err => {
+          console.error(err)
         })
       }
-    },
-
-    showUploadHelp:function(){
-      this.setData({
-        help_show_flag: true
+    } else {
+      wx.showToast({
+        title: '请登录后使用',
+        icon: 'error',
+        duration: 1000,
+        mask: true
       })
-    },
+    }
+  },
 
-    closeHelp:function(){
-      this.setData({
-        help_show_flag: false
-      })
-    },
 
-    selectSTime: function(e) {
-      this.setData({
-        time_start: e.detail.value
-      })
-    },
+  randomString: function () {
+    const len = 8;
+    let timestamp = new Date().getTime();
+    let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+    let maxPos = $chars.length;
+    let randomStr = '';
+    for (let i = 0; i < len; i++) {
+      randomStr += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    console.log('时间戳', timestamp)
+    console.log('随机数', randomStr)
+    return randomStr + timestamp;
+  },
 
-    selectETime: function(e) {
-      this.setData({
-        time_end: e.detail.value
-      })
-      wx.hideTabBar()
-    },
+  uploadFileDetail(token, fileName, fileId) {
+    wx.cloud.callContainer({
+      path: '/api/pdf/pdf_upload',
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'X-WX-SERVICE': 'ai',
+        'token': token
+      },
+      data: {
+        pdf_name: fileName,
+        file_id: fileId
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  },
 
-    selectRegion: function(e) {
-      this.setData({
-        area: e.detail.value
-      })
-    },
+  showUploadHelp: function () {
+    this.setData({
+      help_show_flag: true
+    })
+  },
 
-    selectFile: function (e) {
+  closeHelp: function () {
+    this.setData({
+      help_show_flag: false
+    })
+  },
+
+  selectSTime: function (e) {
+    this.setData({
+      time_start: e.detail.value
+    })
+  },
+
+  selectETime: function (e) {
+    this.setData({
+      time_end: e.detail.value
+    })
+    wx.hideTabBar()
+  },
+
+  selectRegion: function (e) {
+    this.setData({
+      area: e.detail.value
+    })
+  },
+
+  selectFile: function (e) {
+    if (this.data.isLogged) {
       var that = this
       wx.chooseMessageFile({
         count: 1,
         type: 'file',
-        success(res){
+        success(res) {
           // 预览文件
           const tempFile = res.tempFiles[0]
-          console.log(tempFile)
           that.setData({
             file: tempFile
           })
         }
       })
-    },
-
-    previewFile:function(){
-      var that = this
-      wx.downloadFile({
-        url: that.data.file.path,
-        success: function(res){
-          const filePath = res.tempFilePath
-          wx.openDocument({
-            filePath: filePath,
-            showMenu: false,
-            success(res){
-              console.log('预览文件成功')
-            }
-          })
-        }
+    } else {
+      wx.showToast({
+        title: '请登录后使用',
+        icon: 'error',
+        duration: 1000,
+        mask: true
       })
-    },
+    }
+  },
 
-    cancelFileSelect: function(){
-      this.setData({
-        file: ''
-      })
-    },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-        this.setData({
-            isLogged: app.globalData.isLogged
-          })
-          if(app.globalData.isLogged){
-            this.setData({
-              nickName: wx.getStorageSync('userInfo').nickName
-            })
+  previewFile: function () {
+    var that = this
+    wx.downloadFile({
+      url: that.data.file.path,
+      success: function (res) {
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          showMenu: false,
+          success(res) {
+            console.log('预览文件成功')
           }
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-      // 检测登录状态
-     
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-      var tabBar = this.getTabBar()
-      tabBar.setData({
-        selected: 0
-      })
-      if(app.globalData.afterAnalysis){
-        wx.redirectTo({
-          url: '/pages/analysis/result/result',
         })
       }
-    },
+    })
+  },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+  cancelFileSelect: function () {
+    this.setData({
+      file: ''
+    })
+  },
 
-    },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+  },
 
-    },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+    // 检测登录状态
+  },
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    this.setData({
+      isLogged: app.globalData.isLogged
+    })
+    if (app.globalData.isLogged) {
+      this.setData({
+        nickName: wx.getStorageSync('userInfo').nickName
+      })
+    }
+    var tabBar = this.getTabBar()
+    tabBar.setData({
+      selected: 0
+    })
 
-    },
+  },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
 
-    },
+  },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
 
-    },
+  },
 
-   
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  },
+
+
 })

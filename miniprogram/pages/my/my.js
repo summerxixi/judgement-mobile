@@ -38,6 +38,8 @@ Page({
     // wx.setStorageSync('key', data)
   },
   onLoad() {
+  },
+  onShow() {
     this.setData({
       isLogged: app.globalData.isLogged
     })
@@ -45,10 +47,7 @@ Page({
       this.setData({
         userInfo: wx.getStorageSync('userInfo')
       })
-      console.log(this.data.userInfo)
     }
-  },
-  onShow() {
     var tabBar = this.getTabBar()
     tabBar.setData({
       selected: 1
