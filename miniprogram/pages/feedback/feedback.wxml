@@ -1,0 +1,39 @@
+<view class="top-bar">
+  <text class="top-bar-text">
+    问题反馈
+  </text>
+</view>
+
+<view class="root">
+  <view class="tab">
+    <view bindtap="handleBar1" class="tab-item {{current===1?'active':''}}">想咨询</view>
+    <view bindtap="handleBar2" class="tab-item {{current===2?'active':''}}">提建议</view>
+    <view bindtap="handleBar3" class="tab-item {{current===3?'active':''}}">要投诉</view>
+  </view>
+  <view class="bottom-line"></view>
+  <view class="textarea">
+    <textarea  bindinput="bindTextInput" placeholder="输入您的反馈详情" class="input"></textarea>
+  </view>
+  <view class="bottom-line"></view>
+  <view class="img-font">添加图片（选填，最多三张）</view>
+  <view class="img-box" bindtap="chooseImage"  wx:if="{{isImgs}}" >
+    <view class="beforeImg">
+      <image src="/static/images/Framefile-icon.png" mode="widthFix" class="pick-file-icon" />
+      <view class="font-style" >{{promptMessage}}</view>
+    </view>
+  </view>
+<view class="img-box" bindtap="chooseImage" wx:if="{{!isImgs}}">
+  <image bindtap="lookBigImg" wx:for="{{imgs}}" wx:key="index" class="img-style" src="{{item}}" ></image>
+</view>
+  
+  <button class="btn">确认提交</button>
+</view>
+
+<view class="font-limited">{{textLength}}/300</view>
+
+<popup id="popupConsult" title='咨询问题' content="请输入想要咨询的问题 "  btn_no='取消' btn_ok='咨询' bind:error="_error1" bind:success="_success1">
+<textarea name="" id="" cols="30" rows="10"></textarea>
+</popup>
+<popup id='popupComplaint' title='投诉原因' content="请输入想要投诉的地方 " btn_no='取消' btn_ok='投诉' bind:error="_error2" bind:success="_success2" >
+<textarea class="popInput" name="" id="" cols="30" rows="10"></textarea>
+</popup>

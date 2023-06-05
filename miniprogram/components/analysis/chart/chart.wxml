@@ -1,4 +1,4 @@
 <!-- com-chart/index.wxml -->
 <view style="height: {{height}}">
-  <ec-canvas id="{{chartId}}" canvas-id="{{canvasId}}" ec="{{ ec }}"></ec-canvas>
+  <ec-canvas  id="{{chartId}}" canvas-id="{{canvasId}}" ec="{{ ec }}"></ec-canvas>
 </view>
