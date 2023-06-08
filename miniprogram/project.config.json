@@ -19,7 +19,10 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "useCompilerPlugins": [
+      "less"
+    ]
   },
   "condition": {},
   "editorSetting": {

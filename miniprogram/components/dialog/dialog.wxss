@@ -1,60 +1,64 @@
 /* component/popup.wxss */
 .wx-popup {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .5);
-    z-index: 999999;
-  
-  }
-  .popup-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    
-    width: 100%;
-    max-width: 700rpx;
-    border-radius: 20rpx;
-    box-sizing: bordre-box;
-    transform: translate(-50%, -50%); 
-    overflow: hidden;
-    background: #fff;
-  }
-  .wx-popup-title {
-    width: 100%;
-    text-align: center;
-    font-weight: 600;
-    font-size: 34rpx;
-    line-height: 38rpx;
-    padding: 40rpx 0 30rpx 0;
-  }
-  .wx-popup-con {
-    margin: 10rpx 5rpx;
-    max-height: 600rpx;
-    overflow-y: auto; /* 设置垂直方向自动显示滚动条 */
-    font-weight: 300;
-    font-size: 32rpx;
-    padding: 0 49rpx;
-    opacity: 0.7;
-    font-family: 'PingFang SC';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-  }
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 999999;
+}
 
-  .wx-popup-btn {
-    display: flex;
-    /* gap: 10rpx; */
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 88rpx;
-    /* background: pink; */
-  }
-  
-  .btn-ok,.btn-no{
+.popup-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  max-width: 700rpx;
+  border-radius: 20rpx;
+  box-sizing: bordre-box;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: #fff;
+}
+
+.wx-popup-title {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 34rpx;
+  line-height: 38rpx;
+  padding: 40rpx 0 30rpx 0;
+}
+
+.wx-popup-con {
+  margin: 10rpx 5rpx;
+  max-height: 600rpx;
+  overflow-y: auto;
+  /* 设置垂直方向自动显示滚动条 */
+  font-weight: 300;
+  font-size: 32rpx;
+  padding: 0 49rpx;
+  opacity: 0.7;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.wx-popup-btn {
+  display: flex;
+  /* gap: 10rpx; */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 88rpx;
+  /* background: pink; */
+}
+
+.btn-ok,
+.btn-no {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -64,4 +68,4 @@
   /* border: 1px solid rgb(226, 217, 217); */
   color: #576B95;
   font-weight: 600;
-  }
+}
