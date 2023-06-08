@@ -6,37 +6,61 @@ Page({
    */
   data: {
     current: 2,
-    isImgs:true,
+    isImgs: true,
     serverUrl: 'https://example.com/upload_image',
     promptMessage: '提供问题画面截图',
     imgs: [],//上传图片列表
     imgPath: [],//已上传成功的图片路径
-    suggestions:'',
-    textLength:0
+    suggestions: '',
+    textLength: 0,
+    complaint: '',
+    consult: ''
   },
 
-  bindTextInput(e){
-    let input  = e.detail.value
+  bindTextInput(e) {
+    let input = e.detail.value
     this.setData({
-      suggestions:input,
-      textLength:input.length
+      suggestions: input,
+      textLength: input.length
     })
-    console.log(e.detail.value.length)
-},
+  },
+  bindConsultInput(e) {
+    let input = e.detail.value
+    this.setData({
+      consult: input,
+    })
+  },
+  bindComplainInput(e) {
+    let input = e.detail.value
+    this.setData({
+      complaint: input,
+    })
+  },
+  handleBack() {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
   // 上传照片
   chooseImage(e) {
+    console.log("开始")
     const _this = this;
-    let imgs = this.data.imgs;
+    var images = this.data.imgs;
     let imgNumber = this.data.imgs.length;//当前已上传的图片张数
     if (imgNumber >= 3) {
-      console.log("超出上传个数");
+      wx.showToast({
+        title: '要超出三张啦',
+        icon: 'error',
+        duration: 1000,
+        mask: true
+      })
       return false;
     } else {
-      imgNumber = 3- imgNumber;
+      imgNumber = 3 - imgNumber;
     };
-    if(this.data.imgs.length>0) {
+    if (this.data.imgs.length > 0) {
       this.setData({
-        isImgs:false
+        isImgs: false
       })
     }
     wx.chooseImage({//打开本地相册选择图片
@@ -46,21 +70,26 @@ Page({
       success(res) {
         const tempFilePaths = res.tempFilePaths;
         for (let i = 0; i < tempFilePaths.length; i++) {
-          imgs.push(tempFilePaths[i]);
+          images.push(tempFilePaths[i]);
         }
         _this.setData({//赋值，回显照片
-          imgs: imgs
+          imgs: images
         });
+        console.log("选择成功")
         let successUp = 0; //成功
         let failUp = 0; //失败
         let count = 0; //第几张
         let length = tempFilePaths.length; //总数
-        console.log(imgs)
+
         // _this.recursionUploading(tempFilePaths, successUp, failUp, count, length);//调用上传方法
       }
     }),
-    console.log(imgNumber)
-  
+      this.setData({
+        imgs: images
+      })
+    console.log("llll")
+    console.log(this.data.imgs)
+
   },
 
   onLoad(options) {
@@ -98,6 +127,19 @@ Page({
     this.popup2.hidePopup();
   },
   _success2() {
+    wx.cloud.callContainer({
+      path: '/api/customer_service/complain',
+      method: "POST",
+      // header: {
+      //   'content-type': 'application/json',
+      //   'X-WX-SERVICE': 'ai',
+      // },
+      data: {
+        consult:this.data.complain
+      }
+    }).then(res => {
+      console.log(res)
+    })
     this.popup2.hidePopup();
   },
   onShow() {

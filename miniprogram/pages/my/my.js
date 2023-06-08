@@ -69,8 +69,9 @@ Page({
     this.popup2.showPopup();
   },
   showPopupFeedback() {
-    console.log("pop")
-    this.popup3.showPopup();
+  wx.navigateTo({
+    url: '/pages/feedback/feedback',
+  })
   },
   //取消事件
   _error1() {

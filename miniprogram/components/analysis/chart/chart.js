@@ -9,6 +9,7 @@ Component({
     height: {
       type: String
     },
+    width:{type:String},
     option: {
       type: Object,
       observer(val) {
