@@ -49,9 +49,8 @@
 }
 
 .fig-container {
-  height: 300rpx;
-  width: 300rpx;
-  margin-left: 84px;
+  height: 400rpx;
+  width: 400rpx;
   z-index: 9;
 }
 
@@ -69,6 +68,22 @@
   height: 260rpx;
 }
 
+.legend-name{
+  position: absolute;
+  left: 66%;
+  right: 8%;
+  top: 53%;
+  bottom: 44.83%;
+  
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 7px;
+  line-height: 16px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  
+}
 .two-fig {
   display: flex;
   width: 100%;
@@ -102,6 +117,21 @@
   font-weight: 400;
   font-size: 12px;
   text-align: center;
+}
+
+.font-sub-large {
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}
+
+.font-sub-small {
+  margin-top: 8rpx;
+  font-size: 8px;
+  line-height: 12px;
+  text-align: center;
+  color: #666666;
+
 }
 
 .mid-bottom{

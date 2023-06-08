@@ -32,7 +32,7 @@
   flex-direction: column;
 }
 
-.tab-bar-item image {
+.tab-bar-img{
   width: 50rpx;
   height: 50rpx;
 }

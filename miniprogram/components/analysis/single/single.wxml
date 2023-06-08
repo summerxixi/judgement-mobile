@@ -25,12 +25,12 @@
   </view>
   <view class="mid-font">
     <view class="mid-font-sub">
-      <view>偏差较小</view>
-      <view>以1个标准差为阈值</view>
+      <view class="font-sub-large">偏差较小</view>
+      <view class="font-sub-small">以1个标准差为阈值</view>
     </view>
     <view class="mid-font-sub">
-      <view>偏差较大</view>
-      <view>以2个标准差为阈值</view>
+      <view class="font-sub-large">偏差较大</view>
+      <view class="font-sub-small">以2个标准差为阈值</view>
     </view>
   </view>
 

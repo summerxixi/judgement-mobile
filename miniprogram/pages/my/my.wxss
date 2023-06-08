@@ -274,3 +274,9 @@ color: #0A0C0B;
   width: 750rpx;
   bottom: 0rpx;
 }
+
+.feedbackInput{
+  height: 100rpx;
+  width: 300rpx;
+  background: pink;
+}

@@ -26,11 +26,12 @@
   position: relative;
 }
 
-.chart1{
+.chart1 {
   position: absolute;
   z-index: 9;
   width: 150px;
 }
+
 .mid-p2 {
   display: flex;
   justify-content: center;
@@ -103,14 +104,30 @@
   font-weight: 400;
   font-size: 12px;
   text-align: center;
+
 }
 
-.mid-bottom{
+.font-sub-large {
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}
+
+.font-sub-small {
+  margin-top: 8rpx;
+  font-size: 8px;
+  line-height: 12px;
+  text-align: center;
+  color: #666666;
+
+}
+
+.mid-bottom {
   margin-top: 67rpx;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 20px;
-  background:#FFF;
+  background: #FFF;
   margin-bottom: 180rpx;
 }
