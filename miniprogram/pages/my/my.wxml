@@ -2,9 +2,6 @@
     <view class="my-background"></view>
     <view class="my-top-bar">
         <view class="my-top-bar-title" >
-            <view bindtap="handleBack">
-                <text  decode="{{true}}" class="my-top-bar-title-back" >&lt;</text>
-            </view>
             <text style="padding-left: 250rpx;">我的 </text>
          </view>
         <view class="my-top-bar-border">
