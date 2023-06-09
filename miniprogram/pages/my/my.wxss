@@ -25,19 +25,15 @@
   top: 0px;
 }
 .my-top-bar-title{
-  display: flex;
   position: absolute;
-  left: calc(50% - 34px/2 - 146px);
   height: 48rpx;
+  left: 50rpx;
   bottom: 19rpx;
   color: white;
   font-size: 34rpx;
   line-height: 48rpx;
 }
 
-.my-top-bar-title-back{
-    font-size: 60rpx
-}
 .my-top-bar-border{
   position: absolute;
   height: 0.5px;

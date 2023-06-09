@@ -29,13 +29,15 @@ Page({
   openAcheivement() {
     console.log('我的成就');
   },
+  // 退出登录
   handleLogout() {
     wx.setStorageSync('token', null)
+    wx.setStorageSync('userInfo', null)
     app.globalData.isLogged = false //以防万一，一块设置了
+    // 使用重定向刷新页面
     wx.redirectTo({
       url: '../my/my',
     })
-    // wx.setStorageSync('key', data)
   },
   onLoad() {
   },
@@ -92,10 +94,5 @@ Page({
   _success3() {
     this.popup3.hidePopup();
   },
-  handleBack(){
-      console.log("kkk")
-      wx.redirectTo({
-        url: '/pages/analysis/uploadInfo/uploadInfo',
-      })
-  }
+  
 })

@@ -1,18 +1,14 @@
 <!--components/analysis/single/single.wxml-->
 
 <view class="mid-difference">
-  <view class="mid-p1">法官个人因素所导致的量刑差异</view>
-  <view class="fig-container">
-    <chart option="{{topOption}}" height="300rpx" class="chart1" ></chart>
-  </view>
+  <view class="mid-p">法官个人因素所导致的量刑差异</view>
+  <chart option="{{topOption}}" height="300rpx" class="chart1"></chart>
 </view>
 
 <view class="mid-diverge">
-  <view class="mid-p2">不同法官量刑偏离值</view>
+  <view class="mid-p">不同法官量刑偏离值</view>
   <view class="mid-top-fig">
-    <view>
       <chart option="{{midTopOption}}" height="260rpx"></chart>
-    </view>
   </view>
 
   <view class="two-fig">
@@ -33,14 +29,11 @@
       <view class="font-sub-small">以2个标准差为阈值</view>
     </view>
   </view>
-
 </view>
 
-
-
 <view class="mid-bottom">
-  <view class="mid-p2">本案法官量刑偏移程度</view>
-  <view >
-    <chart option="{{chartOption}}" height="400rpx" ></chart>
+  <view class="mid-p">本案法官量刑偏移程度</view>
+  <view>
+    <chart option="{{chartOption}}" height="400rpx"></chart>
   </view>
 </view>
