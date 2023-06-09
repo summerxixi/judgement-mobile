@@ -1,13 +1,16 @@
 /* pages/analysis/analysis.wxss */
 .body {
-  /* height: 1285rpx; */
+  overflow: scroll;
   padding-left: 48rpx;
   padding-right: 48rpx;
+
   background: #FFFFFF;
   box-shadow: 0px -6px 30px rgba(165, 163, 204, 0.5);
   backdrop-filter: blur(13.5914px);
   border-top-right-radius: 60rpx;
   border-top-left-radius: 60rpx;
+
+  overflow: scroll;
 }
 
 .ana-top {
@@ -24,7 +27,6 @@
   font-family: 'PingFang SC';
   font-style: normal;
   line-height: 58rpx;
-
 }
 
 .ana-top-right {
@@ -33,13 +35,14 @@
   font-style: normal;
   font-weight: 400;
   font-size: 28rpx;
-
-
 }
 
 .ana-top-right-le,
 .ana-top-right-re {
   width: 194rpx;
+  height: 56rpx;
+  box-sizing: border-box;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,8 +51,8 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.ana-top-right-le {
-  margin-right: -20px;
+.ana-top-right-re {
+  margin-left: -32rpx;
 }
 
 .active {

@@ -6,12 +6,13 @@
   left: 0;
   right: 0;
   height: 166rpx;
-  background: rgba(248, 248, 248, 0.82);
+  background: rgba(248, 248, 248);
   display: flex;
   flex-direction: row;
 
   padding: 14rpx 200rpx;
   justify-content: space-between;
+
 }
 
 .tab-bar-border {
